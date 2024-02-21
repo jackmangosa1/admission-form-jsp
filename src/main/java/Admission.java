@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -9,6 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
   
+
 @WebServlet("/Admission")
 public class Admission extends HttpServlet {
     private static final long serialVersionUID = 1L;

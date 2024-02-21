@@ -6,38 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Admission Form</title>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script type="text/javascript">
-        // Define languages for translation
-        var languages = {
-            'en': 'English',
-            'fr': 'French',
-            'sw': 'Swahili'
-        };
 
-        function selectLanguage(code) {
-            // Store selected language in cookie for persistence
-            document.cookie = "chosenLang=" + code + "; expires=365; path=/";
-
-            // Trigger page reload with translation parameter
-            window.location.href = window.location.href + "?lang=" + code;
-        }
-
-        function googleTranslateElementInit() {
-            // Retrieve selected language from cookie or parameter
-            var selectedLang = document.cookie.match(/chosenLang=([^;]*)/) ? document.cookie.match(/chosenLang=([^;]*)/)[1] : (window.location.search.match(/lang=([^&]*)/) ? window.location.search.match(/lang=([^&]*)/)[1] : 'en');
-
-            // Update button states and translate key elements
-            for (var code in languages) {
-                document.getElementById("lang_" + code).classList.remove("active");
-                if (code === selectedLang) {
-                    document.getElementById("lang_" + code).classList.add("active");
-                    google.translate.element(document.getElementById("form-title"), "en", code);
-                    google.translate.element(document.getElementById("translate-hint"), "en", code);
-                }
-            }
-        }
-    </script>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -71,7 +40,7 @@
         box-sizing: border-box;
     }
     input[type="submit"] {
-        background-color: #4caf50;
+        background-color: #0057ff;
         color: white;
         padding: 12px 20px;
         border: none;
@@ -80,7 +49,7 @@
         width: 100%;
     }
     input[type="submit"]:hover {
-        background-color: #45a049;
+        background-color: rgba(0,87,255, 0.6);
     }
     .error-message {
         color: red;
@@ -114,33 +83,7 @@
 </div>
 
 <div class="container">
-
-<%@ page import="java.util.Map" %>
-<%@ page import="java.util.HashMap" %>
-<%-- Declare and initialize the languages map --%>
-<% 
-    Map<String, String> languages = new HashMap<>();
-    languages.put("en", "English");
-    languages.put("fr", "French");
-    languages.put("sw", "Swahili");
-%>
-<%
-    // Retrieve selected language from cookie or parameter
-    String selectedLang = (String) request.getAttribute("selectedLang"); // Or however you're retrieving it
-%>
-
-<!--
-<div class="language-bar">
-    <h2>Translate Form:</h2>
-    <div class="language-buttons">
-        <% for (String code : languages.keySet()) { %>
-            <button id="lang_<%= code %>" class="lang-button <%= code.equals(selectedLang) ? "active" : "" %>" onclick="selectLanguage('<%= code %>')"><%= languages.get(code) %></button>
-        <% } %>
-    </div>
-    <p id="translate-hint">(Select language for full translation)</p>
-</div>  -->
-    <h2>Student Admission Form</h2>
-   
+ <h2>Student Admission Form</h2>
     <form action="Admission" method="POST" enctype="multipart/form-data">
         <label for="firstname">First Name</label>
         <input type="text" id="firstname" name="firstname" required>
